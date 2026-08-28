@@ -4,9 +4,18 @@ They must contain exactly the same letters with the same quantity,
 ignoring case and spaces.
 """
 def anagram(s1: str, s2: str) -> bool:
-    cleaned_s1 = ''.join(char.lower() for char in s1 if char.isalpha())
-    cleaned_s2 = ''.join(char.lower() for char in s2 if char.isalpha())
-    return sorted(cleaned_s1) == sorted(cleaned_s2)
+    count1: dict[str, int] = {}
+    count2: dict[str, int] = {}
+
+    for char in s1.lower():
+        if char.isalpha():
+            count1[char] = count1.get(char, 0) + 1
+
+    for char in s2.lower():
+        if char.isalpha():
+            count2[char] = count2.get(char, 0) + 1
+
+    return count1 == count2
 
 
 if __name__ == "__main__":

@@ -5,11 +5,13 @@ in the same order, but not necessarily consecutively.
 Function is case-sensitive.
 """
 def hidenp(small: str, big: str) -> bool:
-    while small and big:
-        if small[0] == big[0]:
-            small = small[1:]
-        big = big[1:]
-    return not small
+    index = 0
+
+    for char in big:
+        if index < len(small) and char == small[index]:
+            index += 1
+
+    return index == len(small)
 
 
 if __name__ == "__main__":

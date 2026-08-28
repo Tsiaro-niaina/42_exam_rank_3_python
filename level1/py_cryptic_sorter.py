@@ -8,23 +8,25 @@ Write a function that sorts a list of strings according to multiple criteria:
 Forbidden functions: sorted(), list.sort()
 """
 def cryptic_sorter(strings: list[str]) -> list[str]:
-    def vowel_count(s: str) -> int:
-        return sum(1 for char in s.lower() if char in 'aeiou')
 
-    n = len(strings)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if len(strings[j]) > len(strings[j+1]):
-                strings[j], strings[j+1] = strings[j+1], strings[j]
-            elif len(strings[j]) == len(strings[j+1]):
-                if strings[j].lower() > strings[j+1].lower():
-                    strings[j], strings[j+1] = strings[j+1], strings[j]
-                elif strings[j].lower() == strings[j+1].lower():
-                    if vowel_count(strings[j]) > vowel_count(strings[j+1]):
-                        strings[j], strings[j+1] = strings[j+1], strings[j]
+    def key(s: str) -> tuple[int, str, int]:
+        vowels = sum(1 for c in s.lower() if c in 'aeiou')
+        return (len(s), s.lower(), vowels)
 
-    return strings
-    
+    result = strings.copy()
+
+    for i in range(1, len(result)):
+        current = result[i]
+        current_key = key(current)
+        j = i - 1
+
+        while j >= 0 and key(result[j]) > current_key:
+            result[j + 1] = result[j]
+            j -= 1
+
+        result[j + 1] = current
+
+    return result
 
 if __name__ == "__main__":
     test_strings = ["aaa","bbb","AAA","BBB"]
