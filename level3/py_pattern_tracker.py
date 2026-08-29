@@ -5,10 +5,14 @@ digit is exactly one greater than the first.
 A 9 followed by a 0 is NOT a valid pair.
 """
 def pattern_tracker(text: str) -> int:
-    return sum(
-        a.isdigit() and b.isdigit() and int(b) == int(a) + 1
-        for a, b in zip(text, text[1:])
-    )
+    count = 0
+
+    for a, b in zip(text, text[1:]):
+        if '0' <= a <= '9' and '0' <= b <= '9':
+            if int(b) == int(a) + 1:
+                count += 1
+
+    return count
 
 
 if __name__ == "__main__":

@@ -9,30 +9,36 @@ def number_base_converter(
     from_base: int,
     to_base: int
 ) -> str:
-    if not (2 <= from_base <= 36) or not (2 <= to_base <= 36):
+    if not (2 <= from_base <= 36):
+        return "ERROR"
+
+    if not (2 <= to_base <= 36):
+        return "ERROR"
+
+    if not number:
         return "ERROR"
 
     chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
     decimal_value = 0
 
-    for char in number.upper():
+    for char in number:
         if char not in chars[:from_base]:
             return "ERROR"
 
-        decimal_value = decimal_value * from_base + chars.index(char)
+        decimal_value = decimal_value * from_base
+        decimal_value += chars.index(char)
 
     if decimal_value == 0:
         return "0"
 
     result: list[str] = []
 
-    while decimal_value:
-        result.append(chars[decimal_value % to_base])
+    while decimal_value > 0:
+        remainder = decimal_value % to_base
+        result.append(chars[remainder])
         decimal_value //= to_base
 
     return "".join(reversed(result))
-
 
 if __name__ == "__main__":
     test_number = "1A"

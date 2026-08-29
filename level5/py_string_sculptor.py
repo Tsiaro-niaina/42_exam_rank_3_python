@@ -7,23 +7,24 @@ The first alphabetic character should be lowercase, the second uppercase, etc.
 Spaces reset the alternation (next alpha after a space is lowercase again)
 """
 def string_sculptor(text: str) -> str:
-    result = []
-    lower = True
+    to_low = True
+    res = ""
 
     for char in text:
-        if char.isalpha():
-            if lower:
-                result.append(char.lower())
+        if char.isspace():
+            to_low = True
+            res += char
+        elif char.isalpha():
+            if to_low:
+                res += char.lower()
+                to_low = False
             else:
-                result.append(char.upper())
-            lower = not lower
+                res += char.upper()
+                to_low = True
         else:
-            result.append(char)
-            if char.isspace():
-                lower = True
+            res += char
 
-    return ''.join(result)
-
+    return res
 
 if __name__ == "__main__":
     test_string = "Hello World! This is a Test."

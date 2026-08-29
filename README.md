@@ -2,11 +2,11 @@
 
 # 42 Exam Rank 3
 
-My solutions for the **42 Exam Rank 3** exercises.
+My solutions for the **42 Exam Rank 3 python** exercises.
 
 ## About
 
-These solutions were written by me as part of my own preparation and practice for the exam.
+These solutions were written by me as part of my own preparation and practice for the exam from level 1 to level 6.
 
 They are shared **as a learning aid and reference**, not as solutions to copy and paste blindly.
 
@@ -20,7 +20,7 @@ The goal is to **learn and improve**, not simply to pass the exercise.
 
 ## Disclaimer
 
-These solutions may contain mistakes or use approaches that differ from what you may choose during the exam.
+These solutions may use approaches that differ from what you may choose during the exam.
 
 Always refer to the official 42 subject and make sure you understand the code before using it.
 

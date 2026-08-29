@@ -5,15 +5,17 @@ Non-alphabetic characters should remain unchanged.
 The shift can be negative (shift left).
 """
 def whisper_cipher(text: str, shift: int) -> str:
-    result = []
-    for char in text:
-        if char.isalpha():
-            offset = ord('a') if char.islower() else ord('A')
-            shifted = (ord(char) - offset + shift) % 26 + offset
-            result.append(chr(shifted))
+    res: str = ""
+
+    for c in text:
+        if 'a' <= c <= 'z':
+            res += chr((ord(c) - ord('a') + shift) % 26 + ord('a'))
+        elif 'A' <= c <= 'Z':
+            res += chr((ord(c) - ord('A') + shift) % 26 + ord('A'))
         else:
-            result.append(char)
-    return ''.join(result)
+            res += c
+
+    return res
 
 
 if __name__ == "__main__":
