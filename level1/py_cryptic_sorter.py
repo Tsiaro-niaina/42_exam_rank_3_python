@@ -28,6 +28,7 @@ def cryptic_sorter(strings: list[str]) -> list[str]:
 
     return result
 
+
 if __name__ == "__main__":
     test_strings = ["aaa","bbb","AAA","BBB"]
     sorted_strings = cryptic_sorter(test_strings)

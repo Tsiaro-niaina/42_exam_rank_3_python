@@ -26,6 +26,7 @@ def string_sculptor(text: str) -> str:
 
     return res
 
+
 if __name__ == "__main__":
     test_string = "Hello World! This is a Test."
     print(f"Transformed string: '{string_sculptor(test_string)}'")

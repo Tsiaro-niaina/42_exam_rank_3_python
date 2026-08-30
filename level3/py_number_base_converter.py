@@ -40,6 +40,7 @@ def number_base_converter(
 
     return "".join(reversed(result))
 
+
 if __name__ == "__main__":
     test_number = "1A"
     from_base = 16

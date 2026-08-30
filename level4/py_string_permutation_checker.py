@@ -23,6 +23,7 @@ def string_permutation_checker(s1: str, s2: str) -> bool:
 
     return not count
 
+
 if __name__ == "__main__":
     string1 = "abcde"
     string2 = "edcba"
