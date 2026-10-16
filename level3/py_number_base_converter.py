@@ -4,11 +4,7 @@ Support bases from 2 to 36 inclusive.
 Use digits 0-9 and letters A-Z for values 10-35.
 Return "ERROR" for invalid inputs.
 """
-def number_base_converter(
-    number: str,
-    from_base: int,
-    to_base: int
-) -> str:
+def number_base_converter(number: str, from_base: int, to_base: int) -> str:
     if not (2 <= from_base <= 36):
         return "ERROR"
 
