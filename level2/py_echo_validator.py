@@ -5,6 +5,8 @@ for the comparison.
 A palindrome is a string that reads the same forwards and backwards.
 """
 def echo_validator(text: str) -> bool:
+    if not text:
+        return False
     cleaned_text = ''.join(char.lower() for char in text if char.isalpha())
     return cleaned_text == cleaned_text[::-1]
 
